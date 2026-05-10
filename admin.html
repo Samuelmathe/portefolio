@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-wrap">
+        <div class="admin-head">
+            <h1>Admin <span>Portfolio</span></h1>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <a href="/" class="btn"><i class="fas fa-home"></i> Site</a>
+                <button type="button" class="btn hidden" id="btn-logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</button>
+            </div>
+        </div>
+
+        <div id="msg"></div>
+
+        <div id="login-panel" class="panel login-box">
+            <h2>Connexion</h2>
+            <form id="login-form">
+                <div class="field">
+                    <label for="admin-password">Mot de passe</label>
+                    <input type="password" id="admin-password" autocomplete="current-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;">
+                    <i class="fas fa-key"></i> Entrer
+                </button>
+            </form>
+        </div>
+
+        <div id="dashboard" class="hidden">
+            <form id="site-form" class="panel">
+                <h2>Infos & coordonnées</h2>
+
+                <div class="field">
+                    <label for="f-metaTitle">Titre de l’onglet (meta)</label>
+                    <input type="text" id="f-metaTitle" name="metaTitle">
+                </div>
+
+                <div class="grid2">
+                    <div class="field"><label for="f-brand">Sigle / marque</label><input type="text" id="f-brand" name="brand"></div>
+                    <div class="field"><label for="f-cv">Fichier CV (nom fichier)</label><input type="text" id="f-cv" name="cvFilename"></div>
+                </div>
+
+                <div class="grid2">
+                    <div class="field"><label for="f-firstName">Prénom (hero)</label><input type="text" id="f-firstName"></div>
+                    <div class="field"><label for="f-lastName">Nom (hero)</label><input type="text" id="f-lastName"></div>
+                </div>
+
+                <div class="grid2">
+                    <div class="field"><label for="f-taglinePrefix">Texte avant animation</label><input type="text" id="f-taglinePrefix"></div>
+                    <div class="field"><label for="f-location">Localisation</label><input type="text" id="f-location"></div>
+                </div>
+
+                <div class="field">
+                    <label for="f-typed">Phrases animées (une par ligne)</label>
+                    <textarea id="f-typed" rows="4"></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="f-badge">Badge hero</label>
+                    <input type="text" id="f-badge">
+                </div>
+
+                <div class="field">
+                    <label for="f-stats">Stats (format: valeur|libellé, une par ligne, max 6)</label>
+                    <textarea id="f-stats" rows="4" placeholder="2|Projets livrés"></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="f-about0">À propos — paragraphe 1</label>
+                    <textarea id="f-about0" rows="3"></textarea>
+                </div>
+                <div class="field">
+                    <label for="f-about1">Paragraphe 2</label>
+                    <textarea id="f-about1" rows="3"></textarea>
+                </div>
+                <div class="field">
+                    <label for="f-about2">Paragraphe 3</label>
+                    <textarea id="f-about2" rows="3"></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="f-details">Détails (icône|titre|sous-titre, une par ligne — icônes: graduation-cap, school, map-marker-alt, language)</label>
+                    <textarea id="f-details" rows="5" placeholder="graduation-cap|Génie Informatique|ULPGL, Goma"></textarea>
+                </div>
+
+                <h2 style="margin-top:24px;">Réseaux</h2>
+                <div class="grid2">
+                    <div class="field"><label for="f-github">GitHub URL</label><input type="url" id="f-github"></div>
+                    <div class="field"><label for="f-linkedin">LinkedIn URL</label><input type="url" id="f-linkedin"></div>
+                </div>
+                <div class="field"><label for="f-comeup">Comeup URL</label><input type="url" id="f-comeup"></div>
+
+                <h2 style="margin-top:24px;">Contact</h2>
+                <div class="field"><label for="f-contactIntro">Texte d’intro contact</label><textarea id="f-contactIntro" rows="2"></textarea></div>
+                <div class="grid2">
+                    <div class="field"><label for="f-email">Email</label><input type="email" id="f-email"></div>
+                    <div class="field"><label for="f-waDisplay">WhatsApp (affiché)</label><input type="text" id="f-waDisplay"></div>
+                </div>
+                <div class="field"><label for="f-waE164">WhatsApp (chiffres pour wa.me, ex. 243700123456)</label><input type="text" id="f-waE164"></div>
+                <div class="grid2">
+                    <div class="field"><label for="f-comeupUrl">Lien Comeup (contact)</label><input type="url" id="f-comeupUrl"></div>
+                    <div class="field"><label for="f-comeupLabel">Libellé Comeup</label><input type="text" id="f-comeupLabel"></div>
+                </div>
+                <div class="grid2">
+                    <div class="field"><label for="f-githubUrl">URL GitHub (contact)</label><input type="url" id="f-githubUrl"></div>
+                    <div class="field"><label for="f-githubDisplay">Texte affiché GitHub</label><input type="text" id="f-githubDisplay"></div>
+                </div>
+
+                <h2 style="margin-top:24px;">Footer</h2>
+                <div class="field"><label for="f-footerLine">Ligne descriptive</label><input type="text" id="f-footerLine"></div>
+                <div class="field"><label for="f-footerCopy">Copyright</label><input type="text" id="f-footerCopy"></div>
+
+                <button type="submit" class="btn btn-primary" style="margin-top:16px;">
+                    <i class="fas fa-save"></i> Enregistrer les infos
+                </button>
+            </form>
+
+            <div class="panel" style="border-style:dashed;">
+                <h2>Références sur le site public</h2>
+                <p style="color:var(--text-muted);font-size:14px;line-height:1.65;">
+                    Les cartes « Projets & collaborations » sont définies dans <strong>script.js</strong> (tableau <code>portfolioReferences</code>) : titre, description et lien. Modifie ce fichier puis redéploie.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+{
+  "metaTitle": "Mumbere Mathe Samuel — Développeur IoT & Fullstack",
+  "identity": {
+    "brand": "MMS",
+    "firstName": "Mumbere",
+    "lastName": "Mathe Samuel",
+    "taglinePrefix": "Développeur",
+    "typedPhrases": [
+      "IoT & Embarqué",
+      "Fullstack Django",
+      "Arduino & ESP32",
+      "Python & C++"
+    ],
+    "location": "Goma, République Démocratique du Congo"
+  },
+  "hero": {
+    "badge": "Disponible pour missions freelance",
+    "stats": [
+      {
+        "value": 2,
+        "label": "Projets livrés"
+      },
+      {
+        "value": 30,
+        "label": "Équipes max système quiz"
+      }
+    ]
+  },
+  "about": {
+    "paragraphs": [
+      "Ingénieur en génie informatique passionné par l'électronique embarquée et le développement web fullstack, basé à Goma en RDC.",
+      "Je conçois des systèmes IoT complets — du firmware Arduino jusqu'au backend Django — en passant par les protocoles radio nRF24L01 et la commande DMX512 pour l'éclairage événementiel.",
+      "Ma particularité : je livre des projets clé en main, matériel et logiciel, en télétravail depuis l'Afrique pour des clients européens."
+    ],
+    "details": [
+      {
+        "icon": "graduation-cap",
+        "title": "Génie Informatique",
+        "subtitle": "ULPGL, Goma"
+      },
+      {
+        "icon": "school",
+        "title": "Électronique",
+        "subtitle": "École secondaire HIMBI, Goma"
+      },
+      {
+        "icon": "map-marker-alt",
+        "title": "Goma, RDC",
+        "subtitle": "Disponible en remote"
+      },
+      {
+        "icon": "language",
+        "title": "Français natif",
+        "subtitle": "Anglais en cours"
+      }
+    ]
+  },
+  "social": {
+    "github": "https://github.com/Samuelmathe",
+    "linkedin": "https://www.linkedin.com/in/samuel-mathr-479abb283/",
+    "comeup": "https://comeup.com/fr/@samuelmathr"
+  },
+  "contact": {
+    "intro": "Vous avez un projet IoT, un site web à créer ou besoin d'un développeur freelance ? Contactez-moi !",
+    "email": "mathrsamuel@gmail.com",
+    "whatsappE164": "243810626051",
+    "whatsappDisplay": "+243 810 626 051",
+    "comeupUrl": "https://comeup.com/fr/@samuelmathr",
+    "comeupLabel": "Profil Comeup",
+    "githubUrl": "https://github.com/Samuelmathe",
+    "githubDisplay": "github.com/Samuelmathe"
+  },
+  "footer": {
+    "line": "Mumbere Mathe Samuel · Développeur IoT & Fullstack · Goma, RDC",
+    "copyright": "© 2026 Mumbere Mathe Samuel. Fait avec passion depuis Goma 🌋"
+  },
+  "cvFilename": "cv.pdf"
+}

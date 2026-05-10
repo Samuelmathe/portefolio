@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mumbere Mathe Samuel — Développeur IoT & Fullstack</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- CURSEUR CUSTOM -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- LOADER -->
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <div class="loader-text" id="loader-brand">MMS</div>
+            <div class="loader-bar"><div class="loader-fill"></div></div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo"><span id="nav-brand-text">MMS</span><span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#about" class="nav-link">À propos</a></li>
+            <li><a href="#skills" class="nav-link">Compétences</a></li>
+            <li><a href="#projects" class="nav-link">Projets</a></li>
+            <li><a href="#reviews" class="nav-link">Références</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <a href="cv.pdf" download class="nav-cta" id="nav-cv-link">
+            <i class="fas fa-download"></i> CV
+        </a>
+        <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- MENU MOBILE -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="#about" class="mobile-link">À propos</a></li>
+            <li><a href="#skills" class="mobile-link">Compétences</a></li>
+            <li><a href="#projects" class="mobile-link">Projets</a></li>
+            <li><a href="#reviews" class="mobile-link">Références</a></li>
+            <li><a href="#contact" class="mobile-link">Contact</a></li>
+            <li><a href="cv.pdf" download class="mobile-link" id="mobile-cv-link">Télécharger CV</a></li>
+        </ul>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <canvas id="particles-canvas"></canvas>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge" id="hero-badge">
+                <span class="badge-dot"></span>
+                <span id="hero-badge-text">Disponible pour missions freelance</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="line" id="hero-line1" data-text="Mumbere">Mumbere</span>
+                <span class="line accent" id="hero-line2" data-text="Mathe Samuel">Mathe Samuel</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span id="hero-tagline-prefix">Développeur</span> <span class="typed" id="typed"></span>
+            </p>
+            <p class="hero-location" id="hero-location">
+                <i class="fas fa-map-marker-alt"></i> <span id="hero-location-text">Goma, République Démocratique du Congo</span>
+            </p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">
+                    Voir mes projets <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    Me contacter
+                </a>
+            </div>
+            <div class="hero-stats" id="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-target="2">0</span>
+                    <span class="stat-label">Projets livrés</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-target="30">0</span>
+                    <span class="stat-label">Équipes max système quiz</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-target="100">0</span>
+                    <span class="stat-label">% Satisfaction client</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">01 / À propos</span>
+                <h2 class="section-title">Qui suis-je ?</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-image-wrapper">
+                    <div class="about-image-frame">
+                        <div class="about-avatar">
+                            <span id="about-avatar-initials">MMS</span>
+                        </div>
+                        <div class="about-image-decoration"></div>
+                    </div>
+                    <div class="about-socials">
+                        <a href="https://github.com/Samuelmathe" target="_blank" rel="noopener noreferrer" class="social-link" id="about-social-github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/samuel-mathr-479abb283/" target="_blank" rel="noopener noreferrer" class="social-link" id="about-social-linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://comeup.com/fr/@samuelmathr" target="_blank" rel="noopener noreferrer" class="social-link" id="about-social-comeup">
+                            <i class="fas fa-store"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p class="about-intro" id="about-p0">
+                        Ingénieur en génie informatique passionné par l'<strong>électronique embarquée</strong> et le <strong>développement web fullstack</strong>, basé à Goma en RDC.
+                    </p>
+                    <p id="about-p1">
+                        Je conçois des systèmes IoT complets — du firmware Arduino jusqu'au backend Django — en passant par les protocoles radio nRF24L01 et la commande DMX512 pour l'éclairage événementiel.
+                    </p>
+                    <p id="about-p2">
+                        Ma particularité : je livre des projets <strong>clé en main</strong>, matériel et logiciel, en télétravail depuis l'Afrique pour des clients européens.
+                    </p>
+                    <div class="about-details" id="about-details">
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <strong>Génie Informatique</strong>
+                                <span>ULPGL, Goma</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-school"></i>
+                            <div>
+                                <strong>Électronique</strong>
+                                <span>École secondaire, Goma</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Goma, RDC</strong>
+                                <span>Disponible en remote</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-language"></i>
+                            <div>
+                                <strong>Français natif</strong>
+                                <span>Anglais en cours</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="cv.pdf" download class="btn btn-primary" id="about-cv-link">
+                        <i class="fas fa-download"></i> Télécharger mon CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section class="skills section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">02 / Compétences</span>
+                <h2 class="section-title">Stack technique</h2>
+            </div>
+            <div class="skills-grid">
+
+                <div class="skill-category" data-category="embarque">
+                    <div class="skill-category-header">
+                        <div class="skill-icon">🔧</div>
+                        <h3>Système Embarqué</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">Arduino Mega/Nano</span>
+                        <span class="tag">ESP32</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">nRF24L01</span>
+                        <span class="tag">DMX512</span>
+                        <span class="tag">DFPlayer</span>
+                        <span class="tag">EEPROM</span>
+                        <span class="tag">SPI/I2C</span>
+                        <span class="tag">Watchdog Timer</span>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-category="backend">
+                    <div class="skill-category-header">
+                        <div class="skill-icon">⚙️</div>
+                        <h3>Backend</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Django</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">REST API</span>
+                        <span class="tag">Stripe</span>
+                        <span class="tag">Cloudinary</span>
+                        <span class="tag">Serial COM</span>
+                        <span class="tag">Pygame</span>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-category="frontend">
+                    <div class="skill-category-header">
+                        <div class="skill-icon">🎨</div>
+                        <h3>Frontend</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">HTML5/CSS3</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Bootstrap 5</span>
+                        <span class="tag">DearPyGUI</span>
+                        <span class="tag">FullCalendar</span>
+                        <span class="tag">Responsive</span>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-category="outils">
+                    <div class="skill-category-header">
+                        <div class="skill-icon">🛠️</div>
+                        <h3>Outils & DevOps</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">Git/GitHub</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">PyInstaller</span>
+                        <span class="tag">VS Code</span>
+                        <span class="tag">Arduino IDE</span>
+                        <span class="tag">PythonAnywhere</span>
+                        <span class="tag">Linux</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section class="projects section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">03 / Projets</span>
+                <h2 class="section-title">Mes réalisations</h2>
+            </div>
+
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="iot">IoT / Embarqué</button>
+                <button class="filter-btn" data-filter="web">Web / Django</button>
+                <button class="filter-btn" data-filter="logiciel">Logiciel</button>
+            </div>
+
+            <div class="projects-grid" id="projects-grid">
+                <!-- Les projets sont générés par JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- RÉFÉRENCES (données dans script.js → portfolioReferences) -->
+    <section class="reviews section" id="reviews">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">04 / Références</span>
+                <h2 class="section-title">Projets & collaborations</h2>
+            </div>
+            <div class="reviews-grid" id="reviews-grid"></div>
+            <p class="reviews-empty" id="reviews-empty" hidden></p>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">05 / Contact</span>
+                <h2 class="section-title">Travaillons ensemble</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <p class="contact-intro" id="contact-intro">
+                        Vous avez un projet IoT, un site web à créer ou besoin d'un développeur freelance ? Contactez-moi !
+                    </p>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:mathrsamuel@gmail.com" class="contact-value" id="link-email" data-contact="email">mathrsamuel@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <span class="contact-label">WhatsApp</span>
+                                <a href="https://wa.me/243810626051" target="_blank" rel="noopener noreferrer" class="contact-value" id="link-whatsapp" data-contact="whatsapp">+243 810 626 051</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <div>
+                                <span class="contact-label">Comeup</span>
+                                <a href="https://comeup.com/fr/@samuelmathr" target="_blank" rel="noopener noreferrer" class="contact-value" id="link-comeup" data-contact="comeup">Profil Comeup</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div>
+                                <span class="contact-label">LinkedIn</span>
+                                <a href="https://www.linkedin.com/in/samuel-mathr-479abb283/" target="_blank" rel="noopener noreferrer" class="contact-value" id="link-linkedin" data-contact="linkedin">LinkedIn</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <span class="contact-label">GitHub</span>
+                                <a href="https://github.com/Samuelmathe" target="_blank" rel="noopener noreferrer" class="contact-value" id="link-github" data-contact="github">github.com/Samuelmathe</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="contact-name" name="name" placeholder="Votre nom" required maxlength="120" autocomplete="name">
+                        <label for="contact-name">Nom</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="contact-email" name="email" placeholder="Votre email" required maxlength="254" autocomplete="email">
+                        <label for="contact-email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <select id="contact-type" name="projectType">
+                            <option value="">Type de projet</option>
+                            <option>Système IoT / Arduino</option>
+                            <option>Site web Django</option>
+                            <option>Logiciel Python</option>
+                            <option>Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="contact-message" name="message" placeholder="Décrivez votre projet..." rows="5" required minlength="10" maxlength="8000"></textarea>
+                        <label for="contact-message">Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Envoyer le message <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo"><span id="footer-brand-text">MMS</span><span class="dot">.</span></div>
+                <p class="footer-text" id="footer-line">
+                    Mumbere Mathe Samuel · Développeur IoT & Fullstack · Goma, RDC
+                </p>
+                <div class="footer-links">
+                    <a href="https://github.com/Samuelmathe" target="_blank" rel="noopener noreferrer" id="footer-github"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/samuel-mathr-479abb283/" target="_blank" rel="noopener noreferrer" id="footer-linkedin"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://comeup.com/fr/@samuelmathr" target="_blank" rel="noopener noreferrer" id="footer-comeup"><i class="fas fa-store"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p id="footer-copyright">© 2026 Mumbere Mathe Samuel. Fait avec passion depuis Goma 🌋</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL PROJET -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="modal">
+            <button class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-content" id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
