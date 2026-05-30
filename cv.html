@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CV — Mumbere Mathe Samuel</title>
+  <style>
+    @page { size: A4; margin: 14mm 16mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.45;
+      color: #1a1a2e;
+      background: #fff;
+    }
+    .cv { max-width: 210mm; margin: 0 auto; }
+
+    header {
+      border-bottom: 2.5px solid #0891b2;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 22pt;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+    }
+    .title {
+      font-size: 11pt;
+      color: #0891b2;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      margin-top: 8px;
+      font-size: 8.5pt;
+      color: #475569;
+    }
+    .meta span::before { content: "• "; color: #94a3b8; }
+    .meta span:first-child::before { content: ""; }
+
+    section { margin-bottom: 11px; }
+    h2 {
+      font-size: 9.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #0891b2;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 3px;
+      margin-bottom: 7px;
+      font-weight: 700;
+    }
+
+    .profile p { color: #334155; text-align: justify; }
+
+    .entry { margin-bottom: 8px; }
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .entry-head strong { font-size: 10pt; color: #0f172a; }
+    .entry-head .when { font-size: 8.5pt; color: #64748b; white-space: nowrap; }
+    .entry .place { font-size: 9pt; color: #475569; font-style: italic; }
+    .entry ul { margin: 4px 0 0 16px; color: #334155; }
+    .entry li { margin-bottom: 2px; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 14px;
+    }
+    .skill-block strong {
+      display: block;
+      font-size: 8.5pt;
+      color: #0f172a;
+      margin-bottom: 2px;
+    }
+    .skill-block span { font-size: 8.5pt; color: #475569; }
+
+    .project { margin-bottom: 7px; }
+    .project strong { color: #0f172a; font-size: 9.5pt; }
+    .project .client { font-size: 8pt; color: #64748b; }
+    .project p { margin-top: 2px; color: #334155; font-size: 8.5pt; }
+    .tags { margin-top: 3px; }
+    .tag {
+      display: inline-block;
+      font-size: 7.5pt;
+      background: #f1f5f9;
+      color: #475569;
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin: 1px 3px 1px 0;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .lang { font-size: 9pt; color: #334155; }
+    .lang strong { color: #0f172a; }
+
+  </style>
+</head>
+<body>
+  <div class="cv">
+    <header>
+      <h1>Mumbere Mathe Samuel</h1>
+      <p class="title">Développeur IoT &amp; Fullstack — Ingénieur Génie Informatique</p>
+      <div class="meta">
+        <span>Goma, République Démocratique du Congo</span>
+        <span>Né le 10 avril 2003</span>
+        <span>mathrsamuel@gmail.com</span>
+        <span>+243 810 626 051</span>
+        <span>github.com/Samuelmathe</span>
+        <span>linkedin.com/in/samuel-mathr-479abb283</span>
+        <span>comeup.com/fr/@samuelmathr</span>
+      </div>
+    </header>
+
+    <section class="profile">
+      <h2>Profil</h2>
+      <p>
+        Ingénieur en génie informatique (Bac+4, ULPGL Goma), formé en électronique industrielle et en génie électrique &amp; informatique.
+        Spécialisé dans les systèmes embarqués (Arduino, ESP32, nRF24L01, DMX512) et le développement web fullstack (Django, PostgreSQL, Stripe).
+        Je conçois et livre des projets clé en main — firmware, logiciels desktop Python et applications web — en télétravail pour des clients en Europe.
+        Disponible pour missions freelance IoT, web et logiciel.
+      </p>
+    </section>
+
+    <section>
+      <h2>Formation</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <strong>Licence / Ingénieur — Génie informatique (spécialisation informatique)</strong>
+          <span class="when">Bac+4</span>
+        </div>
+        <p class="place">Université Libre des Pays des Grands Lacs (ULPGL) — Goma, RDC</p>
+        <ul>
+          <li>Parcours : génie électrique et informatique, orientation informatique</li>
+          <li>Compétences : algorithmique, réseaux, développement logiciel, systèmes embarqués</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <strong>Classe préparatoire — Génie électrique et informatique</strong>
+        </div>
+        <p class="place">Formation préparatoire aux études d'ingénieur (GEI)</p>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <strong>Diplôme d'État — Option technique industrielle, électronique</strong>
+        </div>
+        <p class="place">Institut Himbi — Goma, RDC</p>
+        <ul>
+          <li>Électronique, électricité industrielle, automatismes de base</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Compétences techniques</h2>
+      <div class="skills-grid">
+        <div class="skill-block">
+          <strong>Système embarqué &amp; IoT</strong>
+          <span>Arduino Mega/Nano, ESP32, C++, nRF24L01, DMX512, DFPlayer, EEPROM, SPI/I2C, watchdog</span>
+        </div>
+        <div class="skill-block">
+          <strong>Backend</strong>
+          <span>Python, Django, PostgreSQL, REST API, Stripe, Cloudinary, liaison série (PySerial)</span>
+        </div>
+        <div class="skill-block">
+          <strong>Frontend</strong>
+          <span>HTML5, CSS3, JavaScript, Bootstrap 5, FullCalendar, interfaces responsive</span>
+        </div>
+        <div class="skill-block">
+          <strong>Logiciel desktop</strong>
+          <span>DearPyGUI, Pygame, PyInstaller, builds multiplateforme (Windows, macOS, Linux)</span>
+        </div>
+        <div class="skill-block">
+          <strong>Outils &amp; DevOps</strong>
+          <span>Git, GitHub Actions, VS Code, Arduino IDE, PythonAnywhere, Linux</span>
+        </div>
+        <div class="skill-block">
+          <strong>Soft skills</strong>
+          <span>Livraison clé en main, communication client, travail à distance, rigueur technique</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projets &amp; réalisations</h2>
+
+      <div class="project">
+        <strong>Système quiz événementiel (IoT)</strong>
+        <span class="client"> — Client France</span>
+        <p>
+          Système professionnel : 30 buzzers radio (nRF24L01), contrôle DMX512 de 30 projecteurs, Arduino Mega/Nano,
+          EEPROM configurable, gestion des buzz simultanés. Livraison firmware + logiciels de scores et configuration DMX.
+        </p>
+        <div class="tags">
+          <span class="tag">Arduino</span><span class="tag">C++</span><span class="tag">DMX512</span>
+          <span class="tag">nRF24L01</span><span class="tag">Python</span><span class="tag">DearPyGUI</span>
+        </div>
+      </div>
+
+      <div class="project">
+        <strong>Logiciel de scores quiz</strong>
+        <span class="client"> — Client France</span>
+        <p>
+          Application desktop multiplateforme : interface DearPyGUI, détection automatique du port série,
+          jusqu'à 30 équipes, sons Pygame, compilation PyInstaller, CI/CD GitHub Actions.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">PyInstaller</span><span class="tag">GitHub Actions</span>
+        </div>
+      </div>
+
+      <div class="project">
+        <strong>Logiciel de configuration DMX</strong>
+        <span class="client"> — Client France</span>
+        <p>
+          Paramétrage des adresses DMX, couleurs RGB par équipe/projecteur, synchronisation EEPROM Arduino en temps réel, export JSON.
+        </p>
+        <div class="tags">
+          <span class="tag">DMX512</span><span class="tag">Arduino</span><span class="tag">JSON</span>
+        </div>
+      </div>
+
+      <div class="project">
+        <strong>Plateforme web location &amp; événements</strong>
+        <span class="client"> — Client France</span>
+        <p>
+          Application Django : catalogue prestations, panier, paiement Stripe, calendrier FullCalendar, espace client/admin,
+          factures PDF, messagerie, hébergement PythonAnywhere.
+        </p>
+        <div class="tags">
+          <span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">Stripe</span>
+          <span class="tag">Bootstrap</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="two-col">
+      <section>
+        <h2>Langues</h2>
+        <p class="lang"><strong>Français</strong> — langue maternelle</p>
+        <p class="lang" style="margin-top:4px"><strong>Anglais</strong> — en cours d'apprentissage (documentation technique, clients internationaux)</p>
+      </section>
+      <section>
+        <h2>Centres d'intérêt</h2>
+        <p class="lang">Électronique embarquée, IoT, éclairage événementiel (DMX), open source, innovation tech en Afrique</p>
+      </section>
+    </div>
+
+  </div>
+</body>
+</html>
