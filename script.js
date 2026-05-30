@@ -198,6 +198,21 @@ function iconClass(icon) {
 
 let typedWords = ['IoT & Embarqué', 'Fullstack Django', 'Arduino & ESP32', 'Python & C++'];
 
+const mobileMq = window.matchMedia('(max-width: 768px)');
+const reducedMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function isMobileViewport() {
+    return mobileMq.matches;
+}
+
+function prefersReducedMotion() {
+    return reducedMq.matches;
+}
+
+function shouldUseLightMode() {
+    return isMobileViewport() || prefersReducedMotion();
+}
+
 function applySite(site) {
     if (!site) return;
     if (site.metaTitle) document.title = site.metaTitle;
@@ -379,10 +394,7 @@ async function boot() {
         site?.identity?.typedPhrases?.filter(Boolean)?.length > 0
             ? site.identity.typedPhrases.filter(Boolean)
             : ['IoT & Embarqué', 'Fullstack Django', 'Arduino & ESP32', 'Python & C++'];
-    wordIndex = 0;
-    charIndex = 0;
-    isDeleting = false;
-    setTimeout(typeText, 1000);
+    initTypedText();
 
     const heroStats = document.querySelector('.hero-stats');
     if (heroStats) counterObserver.observe(heroStats);
@@ -394,7 +406,7 @@ async function boot() {
 const cursor = document.getElementById('cursor');
 const follower = document.getElementById('cursor-follower');
 
-if (cursor && follower) {
+if (cursor && follower && !shouldUseLightMode()) {
     let mouseX = 0, mouseY = 0;
     let followerX = 0, followerY = 0;
 
@@ -438,14 +450,22 @@ window.addEventListener('load', () => {
 // =========================================================
 // NAVBAR SCROLL
 // =========================================================
-window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+let scrollTicking = false;
+window.addEventListener(
+    'scroll',
+    () => {
+        if (scrollTicking) return;
+        scrollTicking = true;
+        requestAnimationFrame(() => {
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
+            }
+            scrollTicking = false;
+        });
+    },
+    { passive: true },
+);
 
 // =========================================================
 // HAMBURGER MENU MOBILE
@@ -484,11 +504,52 @@ let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 let typingSpeed = 100;
+let typeTimeoutId = null;
+
+function getTypedPhrases() {
+    return typedWords.length ? typedWords : ['IoT'];
+}
+
+function longestTypedPhrase(list) {
+    return list.reduce((a, b) => (a.length >= b.length ? a : b), list[0] || '');
+}
+
+function setupTypedMeasure() {
+    const measure = document.getElementById('typed-measure');
+    if (!measure) return;
+    measure.textContent = longestTypedPhrase(getTypedPhrases());
+}
+
+function initTypedText() {
+    const typedEl = document.getElementById('typed');
+    if (!typedEl) return;
+
+    setupTypedMeasure();
+    wordIndex = 0;
+    charIndex = 0;
+    isDeleting = false;
+
+    if (typeTimeoutId) {
+        clearTimeout(typeTimeoutId);
+        typeTimeoutId = null;
+    }
+
+    const list = getTypedPhrases();
+
+    if (shouldUseLightMode()) {
+        typedEl.textContent = list[0];
+        return;
+    }
+
+    typedEl.textContent = '';
+    typeTimeoutId = setTimeout(typeText, 1000);
+}
 
 function typeText() {
     const typedEl = document.getElementById('typed');
-    if (!typedEl) return;
-    const list = typedWords.length ? typedWords : ['IoT'];
+    if (!typedEl || shouldUseLightMode()) return;
+
+    const list = getTypedPhrases();
     const currentWord = list[wordIndex % list.length];
 
     if (isDeleting) {
@@ -510,8 +571,16 @@ function typeText() {
         typingSpeed = 300;
     }
 
-    setTimeout(typeText, typingSpeed);
+    typeTimeoutId = setTimeout(typeText, typingSpeed);
 }
+
+function handleViewportModeChange() {
+    initTypedText();
+    initParticles();
+}
+
+mobileMq.addEventListener('change', handleViewportModeChange);
+reducedMq.addEventListener('change', handleViewportModeChange);
 
 // =========================================================
 // COUNTER ANIMATION
@@ -559,29 +628,62 @@ const counterObserver = new IntersectionObserver((entries) => {
 // =========================================================
 // PARTICLES CANVAS
 // =========================================================
+let particlesRunning = false;
+let particlesRafId = null;
+let particlesResizeBound = false;
+
+function stopParticles() {
+    particlesRunning = false;
+    if (particlesRafId) {
+        cancelAnimationFrame(particlesRafId);
+        particlesRafId = null;
+    }
+}
+
 function initParticles() {
     const canvas = document.getElementById('particles-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    stopParticles();
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    if (!canvas || shouldUseLightMode()) {
+        const ctx = canvas?.getContext('2d');
+        if (ctx && canvas) ctx.clearRect(0, 0, canvas.width, canvas.height);
+        return;
+    }
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    particlesRunning = true;
+
+    const resize = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    };
+    resize();
 
     const particles = [];
-    const count = Math.min(60, Math.floor(window.innerWidth / 20));
+    const count = Math.min(40, Math.floor(window.innerWidth / 24));
 
     for (let i = 0; i < count; i++) {
         particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
             size: Math.random() * 2 + 0.5,
-            opacity: Math.random() * 0.4 + 0.1
+            opacity: Math.random() * 0.35 + 0.1,
         });
     }
 
-    function draw() {
+    let lastDraw = 0;
+    const frameInterval = 1000 / 30;
+
+    function draw(now) {
+        if (!particlesRunning) return;
+        particlesRafId = requestAnimationFrame(draw);
+        if (now - lastDraw < frameInterval) return;
+        lastDraw = now;
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         particles.forEach((p, i) => {
@@ -598,31 +700,29 @@ function initParticles() {
             ctx.fillStyle = `rgba(0, 229, 255, ${p.opacity})`;
             ctx.fill();
 
-            // Lignes entre particules proches
-            particles.slice(i + 1).forEach(p2 => {
+            for (let j = i + 1; j < particles.length; j++) {
+                const p2 = particles[j];
                 const dx = p.x - p2.x;
                 const dy = p.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 100) {
+                const dist = Math.hypot(dx, dy);
+                if (dist < 90) {
                     ctx.beginPath();
                     ctx.moveTo(p.x, p.y);
                     ctx.lineTo(p2.x, p2.y);
-                    ctx.strokeStyle = `rgba(0, 229, 255, ${0.08 * (1 - dist / 100)})`;
+                    ctx.strokeStyle = `rgba(0, 229, 255, ${0.07 * (1 - dist / 90)})`;
                     ctx.lineWidth = 0.5;
                     ctx.stroke();
                 }
-            });
+            }
         });
-
-        requestAnimationFrame(draw);
     }
 
-    draw();
+    particlesRafId = requestAnimationFrame(draw);
 
-    window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
+    if (!particlesResizeBound) {
+        particlesResizeBound = true;
+        window.addEventListener('resize', resize, { passive: true });
+    }
 }
 
 initParticles();
