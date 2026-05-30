@@ -32,7 +32,8 @@ Ouvrir **http://localhost:3000** — l’API `GET /api/site` alimente les textes
 | [system-quiz](https://github.com/Samuelmathe/system-quiz) | Firmware Arduino + écosystème quiz DMX |
 | [macscorequiz](https://github.com/Samuelmathe/macscorequiz) | Logiciel de scores (Python) |
 | [quizconfiguration](https://github.com/Samuelmathe/quizconfiguration) | Configuration DMX |
-| [CarRentalFictif](https://github.com/Samuelmathe/CarRentalFictif) | Démo location auto (Express + Docker) |
+| [CarRentalFictif](https://github.com/Samuelmathe/CarRentalFictif) | [AutoLoc](https://carrentalfictif.onrender.com/) — location auto (Express + Docker) |
+| [boutique-en-ligne](https://github.com/Samuelmathe/boutique-en-ligne) | Vitrine catalogue + lien vers AutoLoc |
 
 ## Licence
 

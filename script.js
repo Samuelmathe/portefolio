@@ -40,44 +40,36 @@ const projects = [
     },
     {
         id: 2,
-        title: "Plateforme Location & Événements",
+        title: "AutoLoc — Location de véhicules",
         category: "web",
-        categoryLabel: "Web / Django",
-        emoji: "🌐",
+        categoryLabel: "Web / Node.js",
+        emoji: "🚗",
         image: "",
-        description: "Application web complète Django pour la location de matériel événementiel et la gestion de prestations. Paiement Stripe, calendrier réactif, espace admin et client, factures PDF automatiques.",
+        description: "Démo fullstack de location automobile : catalogue API, filtres, réservations, comptes clients, admin et paiement Stripe. Express, SQLite/MongoDB, déployé sur Render.",
         longDescription: `
-            <h3>Plateforme Web Django Complète</h3>
-            <p>Application web full-stack pour un prestataire événementiel français, avec paiement en ligne et gestion complète des réservations.</p>
-            <h4>Fonctionnalités côté client</h4>
+            <h3>AutoLoc — Location de véhicules</h3>
+            <p>Application web complète (démo portfolio) : front moderne servi par Express, API REST et persistance SQLite ou MongoDB selon configuration.</p>
+            <h4>Fonctionnalités</h4>
             <ul>
-                <li>Catalogue prestations avec photos Cloudinary et vidéos YouTube</li>
-                <li>Location matériel avec panier et paiement Stripe sécurisé</li>
-                <li>Calendrier disponibilités temps réel (FullCalendar)</li>
-                <li>Espace client avec historique et messagerie</li>
-                <li>Formulaire demande de devis</li>
-            </ul>
-            <h4>Fonctionnalités admin</h4>
-            <ul>
-                <li>Dashboard statistiques (CA, réservations, clients)</li>
-                <li>Gestion catalogue complet</li>
-                <li>Génération automatique factures PDF</li>
-                <li>Messagerie avec les clients</li>
-                <li>Calendrier des disponibilités</li>
+                <li>Catalogue véhicules avec tri, filtres et recherche</li>
+                <li>Réservation avec calendrier des créneaux occupés</li>
+                <li>Inscription / connexion (session httpOnly)</li>
+                <li>Paiement sur place ou Stripe Checkout</li>
+                <li>Back-office admin : véhicules, réservations, confirmation paiement</li>
             </ul>
             <h4>Stack technique</h4>
             <ul>
-                <li>Django 4.2 + PostgreSQL</li>
-                <li>Stripe Checkout + Webhooks</li>
-                <li>Cloudinary (photos) + Bunny.net (vidéos)</li>
-                <li>Bootstrap 5 + FullCalendar</li>
-                <li>PythonAnywhere hébergement</li>
+                <li>Node.js, Express, HTML/CSS/JS</li>
+                <li>SQLite (démo) ou MongoDB (production)</li>
+                <li>Stripe · Docker · Render</li>
             </ul>
+            <p><a href="https://carrentalfictif.onrender.com/" target="_blank" rel="noopener">Voir la démo live</a> ·
+            <a href="https://github.com/Samuelmathe/boutique-en-ligne" target="_blank" rel="noopener">Vitrine catalogue (GitHub Pages)</a></p>
         `,
-        tags: ["Django", "Python", "Stripe", "PostgreSQL", "Cloudinary", "Bootstrap"],
-        github: "https://github.com/",
-        demo: "",
-        client: "Client France"
+        tags: ["Node.js", "Express", "SQLite", "Stripe", "Docker", "Render"],
+        github: "https://github.com/Samuelmathe/CarRentalFictif",
+        demo: "https://carrentalfictif.onrender.com/",
+        client: "Projet portfolio"
     },
     {
         id: 3,
@@ -165,6 +157,13 @@ const portfolioReferences = [
             'Paramétrage des projecteurs et équipes, couleurs RGB, synchronisation EEPROM avec le firmware Arduino.',
         url: 'https://github.com/Samuelmathe/quizconfiguration',
         linkLabel: 'Code source',
+    },
+    {
+        title: 'AutoLoc — location de véhicules',
+        description:
+            'Démo Express fullstack sur Render : catalogue, réservations, comptes, admin, Stripe.',
+        url: 'https://carrentalfictif.onrender.com/',
+        linkLabel: 'Démo live',
     },
 ];
 
